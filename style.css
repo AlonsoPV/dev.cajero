@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    font-family: roboto;
+
+
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+
+}
+
+.cajero {
+    display: flex;
+    align-items: center;
+    background-color: #230466;
+    border: 2px solid #cccccc;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.pantalla {
+    width: 300px;
+    height: 250px;
+    padding: 4px;
+    background-color: #ffffff;
+    border: 4px solid #000000;
+    margin: 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* align-items: center;     */
+    position: relative;
+    color: #666;
+    font-size: 18px;
+    border-radius: 10px;
+}
+
+.botones {
+    display: flex;
+    flex-direction: column;
+}
+
+.boton {
+    margin: 5px;
+    width: 100px;
+    height: 50px;
+    font-size: 16px;
+    font-weight: bold;
+
+}
+
+.username {
+    margin: 5px;
+    padding:10px
+}
+
+.bienvenida {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 80%; */
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    font-size: 20px;
+    list-style-type: none;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+
+#btnEnviar {
+    width: 30%;
+    margin: 0 auto;
+}
+
+.form {
+    width: 60%;
+    margin: 4px auto;
+}
+
+.lista_menu {
+    text-align: center;
+    margin: 0 auto;
+}
+
+ul {
+    display: flex;
+}
+
+li {
+    margin: 5px;
+    padding: 5px;
+}
+
+.formulario_cuentas {
+    display: inline;
+    margin: auto;
+    text-align: center;
+}
+
+.mensaje_footer {
+    font-size: 8px;
+}
+
+p#mensaje-bienvenida {
+    text-align: center;
+    font-family: roboto;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.botones_footer {
+    display: flex;
+    justify-content: space-around;
+    background-color: #5136AD;
+    padding: 10px 0px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 6px;
+
+}
+
+.boton_footer {
+    background-color: #9272FF;
+    color: #ffffff;
+    border: #ffffff solid 2px;
+    padding: 6px;
+    border-radius: 10px;
+    font-weight: 900;
+}
+
+.boton_footer:hover {
+    background-color: #ffffff;
+    color: #000000;
+    border: #ffffff solid 2px;
+    padding: 6px;
+    border-radius: 10px;
+}
