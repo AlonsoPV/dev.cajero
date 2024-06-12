@@ -152,3 +152,7 @@ p#mensaje-bienvenida {
     padding: 6px;
     border-radius: 10px;
 }
+
+#termino{
+    display: none;
+}

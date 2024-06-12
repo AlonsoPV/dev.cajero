@@ -28,7 +28,7 @@ var formularioOperaciones = `
 `;
 var formularioHTML = `
 <input type="text" class="form" id="UserInput" placeholder="Ingresa usuario">
-<input   type="text" class="form" id="contrasena" placeholder="Ingresa Contraseña">
+<input   type="password" class="form" id="contrasena" placeholder="Ingresa Contraseña">
 <button id="btnEnviar" >Enviar</button>
 
 `;
@@ -58,7 +58,6 @@ var formularioOtra_cuenta = `
     <button id="btnEnviar_otro" >Enviar</button>
 </div>
 `;
-// <p>El saldo actual es de ${saldoValueGlobal}</p>
 var cant_ret = `
 <div class="formulario" style="display:block;margin:auto;text-align: center;">
 
@@ -69,6 +68,14 @@ var cant_ret = `
 function inicio() {
 
     document.getElementById("form_id").innerHTML = formularioHTML;
+    // document.getElementById("inicio_termino").innerHTML = "";
+    var boton = document.getElementById("inicio_termino");
+    boton.style.display = "none"; 
+    
+    var boton = document.getElementById("termino");
+    boton.style.display = "flex"; 
+    var boton = document.getElementById("operacion");
+    boton.style.display = "flex"; 
     document.getElementById('btnEnviar').addEventListener('click', function () {
         var userInputValue = document.getElementById('UserInput').value.toUpperCase();
         var contrasenaValue = document.getElementById('contrasena').value;
@@ -81,7 +88,7 @@ function inicio() {
                 userInputValueGlobal = user[i].usuario;
                 saldoValueGlobal = user[i].saldo;
                 document.getElementById("username").textContent = `U: ${userInputValueGlobal}`;
-                document.getElementById("form_id").innerHTML = formularioOperaciones;  
+                document.getElementById("form_id").innerHTML = formularioOperaciones;
             }
             else {
                 document.getElementById("username").textContent = `U: Usuario ${userInputValueGlobal} o contraseña incorrectos`;
@@ -90,11 +97,11 @@ function inicio() {
 
             return i
         }
-       
+
 
     });
     return userInputValueGlobal;
-    
+
 }
 
 
@@ -141,7 +148,7 @@ function depositar() {
 
         btnEnviar_otro.addEventListener('click', function () {
             var usuario_externo = document.getElementById('UserInput').value.toUpperCase();
-      
+
             for (var i = 0; i < user.length; i++) {
                 if (usuario_externo.toUpperCase() == user[i].usuario.toUpperCase()) {
                     usuarioEncontrado = true;
@@ -152,16 +159,23 @@ function depositar() {
                     btn_cant_envio.addEventListener('click', function () {
                         var cant_micuenta = parseFloat(document.getElementById('btn_cant_dep').value)
                         if (cant_micuenta === "" || isNaN(cant_micuenta)) {
-
                             alert("Ingrese una cantidad válida")
                             depositar();
                         }
                         else {
-                           ;
-                            saldo_externo += cant_micuenta;
-                            saldoValueGlobal -= cant_micuenta;
-                            document.getElementById("form_id").innerHTML = `El saldo actual de ${usuario_externo} es de:<br>$ ${saldo_externo}<br><br>Su saldo actual es de <br>$ ${saldoValueGlobal}`;
-                            return usuario_externo.saldo;
+                            ;
+
+                            console.log(saldoValueGlobal)
+                            if (saldoValueGlobal < cant_micuenta) {
+                                document.getElementById("form_id").innerHTML = `Saldo insuficiente para realizar la operación. Saldo actual $ ${saldoValueGlobal}`;
+
+                            } else {
+                                saldo_externo += cant_micuenta;
+                                saldoValueGlobal -= cant_micuenta;
+                                document.getElementById("form_id").innerHTML = `El saldo actual de ${usuario_externo} es de:<br>$ ${saldo_externo}<br><br>Su saldo actual es de <br>$ ${saldoValueGlobal}`;
+                                return usuario_externo.saldo;
+                            }
+
                         }
                     })
                     return usuario_externo;
@@ -207,6 +221,28 @@ function retirar() {
 }
 
 function regresar() {
+    usuarioEncontrado = false;
+    document.getElementById("form_id").innerHTML = "Gracias por visitarnos";
+    var boton = document.getElementById("inicio_termino");
+    boton.style.display = "flex"; 
+    document.getElementById("username").textContent = "";
+    var boton = document.getElementById("termino");
+    boton.style.display = "none"; 
+    var boton = document.getElementById("operacion");
+    boton.style.display = "none"; 
+
+    // if (usuarioEncontrado == true) {
+
+    //     document.getElementById("form_id").innerHTML = formularioOperaciones;
+    //     usuarioEncontrado = true;
+
+    // } else {
+    //     document.getElementById("form_id").innerHTML = "Ingrese usuario para empezar";
+    // }
+
+}
+function operaciones() {
+  
     if (usuarioEncontrado == true) {
 
         document.getElementById("form_id").innerHTML = formularioOperaciones;
